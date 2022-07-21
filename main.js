@@ -1,9 +1,10 @@
 const container = document.querySelector('.container')
 const button = document.querySelector('.set')
+const pixel = document.querySelector('.pixel')
 button.addEventListener('click', () => {
     size = prompt('enter any number')
-    
-    newSketch(size)  
+    reset();
+    newSketch(size)  ;
 })
 
 const newSketch = function (size) {
@@ -12,8 +13,9 @@ const newSketch = function (size) {
         pixel.classList.toggle(`pixel`)
         pixel.style.width = 500/size + 'px'
         pixel.style.height = 500/size + 'px'
-        
+     
         container.appendChild(pixel)
+        
     
     }
 
@@ -23,5 +25,9 @@ const newSketch = function (size) {
       item.style.borderColor = 'black'
     }))
 }
-
+ const reset = function () {
+   while(container.firstChild) {
+    container.removeChild(container.firstChild);
+   }
+ }
 
